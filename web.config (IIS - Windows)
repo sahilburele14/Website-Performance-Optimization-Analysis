@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <system.webServer>
+        <!-- URL Rewrite for HTTPS -->
+        <rewrite>
+            <rules>
+                <rule name="Force HTTPS" stopProcessing="true">
+                    <match url="(.*)" />
+                    <conditions>
+                        <add input="{HTTPS}" pattern="off" />
+                    </conditions>
+                    <action type="Redirect" url="https://{HTTP_HOST}/{R:1}" redirectType="Permanent" />
+                </rule>
+            </rules>
+        </rewrite>
+        
+        <!-- Compression -->
+        <urlCompression doStaticCompression="true" doDynamicCompression="true" />
+        
+        <!-- Static Content Caching -->
+        <staticContent>
+            <clientCache cacheControlMode="UseMaxAge" cacheControlMaxAge="365.00:00:00" />
+            
+            <!-- MIME Types -->
+            <mimeMap fileExtension=".webp" mimeType="image/webp" />
+            <mimeMap fileExtension=".woff2" mimeType="font/woff2" />
+        </staticContent>
+        
+        <!-- Security Headers -->
+        <httpProtocol>
+            <customHeaders>
+                <add name="X-Content-Type-Options" value="nosniff" />
+                <add name="X-Frame-Options" value="SAMEORIGIN" />
+                <add name="X-XSS-Protection" value="1; mode=block" />
+                <add name="Referrer-Policy" value="strict-origin-when-cross-origin" />
+            </customHeaders>
+        </httpProtocol>
+    </system.webServer>
+</configuration>

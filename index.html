@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ecole Globale International Girls' School - Premier boarding school in Dehradun offering world-class education">
+    <meta name="keywords" content="girls boarding school, Dehradun, international school, education">
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://www.google-analytics.com">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="css/main.css" as="style">
+    <link rel="preload" href="js/performance.js" as="script">
+    
+    <!-- Critical CSS (inline this content) -->
+    <style>
+        /* Inline critical.css content here */
+        body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;color:#333}
+        .header{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#fff;padding:2rem;text-align:center}
+        .hero{min-height:500px;background:#f3f4f6}
+    </style>
+    
+    <!-- Load main CSS asynchronously -->
+    <link rel="stylesheet" href="css/main.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="css/main.css"></noscript>
+    
+    <title>No. 1 Girls Boarding School in Dehradun | Ecole Globale</title>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "Ecole Globale International Girls' School",
+        "url": "https://www.ecoleglobale.com",
+        "logo": "https://www.ecoleglobale.com/images/logo.webp",
+        "description": "Premier international girls boarding school in Dehradun",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Dehradun",
+            "addressRegion": "Uttarakhand",
+            "addressCountry": "IN"
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <picture>
+                <source srcset="images/logo.webp" type="image/webp">
+                <img src="images/logo.png" alt="Ecole Globale Logo" width="200" height="60" class="logo">
+            </picture>
+            
+            <ul class="nav-menu">
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#admission">Admission</a></li>
+                <li><a href="#academics">Academics</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <picture>
+            <source srcset="images/hero-mobile.webp" media="(max-width: 768px)" type="image/webp">
+            <source srcset="images/hero-desktop.webp" type="image/webp">
+            <img src="images/hero-desktop.jpg" 
+                 alt="Ecole Globale Campus" 
+                 width="1920" 
+                 height="800" 
+                 fetchpriority="high">
+        </picture>
+        
+        <div class="hero-content">
+            <h1>Welcome to Ecole Globale International Girls' School</h1>
+            <p>Premier Boarding School in Dehradun</p>
+            <a href="#contact" class="cta-button">Apply Now</a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <h2>About Our School</h2>
+            <p>Ecole Globale International Girls' School is one of the premier institutes for girls. We provide holistic education that prepares young women to become global leaders.</p>
+            
+            <picture>
+                <source data-srcset="images/campus.webp" type="image/webp">
+                <img data-src="images/campus.jpg" 
+                     alt="School Campus" 
+                     class="lazy" 
+                     loading="lazy" 
+                     width="800" 
+                     height="600">
+            </picture>
+        </section>
+
+        <!-- Team Section -->
+        <section class="team-section">
+            <h2>Our Team</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <picture>
+                        <source data-srcset="images/team/principal.webp" type="image/webp">
+                        <img data-src="images/team/principal.jpg" 
+                             alt="Principal - Ms. Kanchan Khandke" 
+                             class="lazy" 
+                             loading="lazy" 
+                             width="300" 
+                             height="300">
+                    </picture>
+                    <h3>Ms. Kanchan Khandke</h3>
+                    <p>Principal</p>
+                </div>
+                
+                <div class="team-card">
+                    <picture>
+                        <source data-srcset="images/team/vice-principal.webp" type="image/webp">
+                        <img data-src="images/team/vice-principal.jpg" 
+                             alt="Vice Principal - Ms. Puja Pant" 
+                             class="lazy" 
+                             loading="lazy" 
+                             width="300" 
+                             height="300">
+                    </picture>
+                    <h3>Ms. Puja Pant</h3>
+                    <p>Vice Principal</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest Updates -->
+        <section class="updates-section">
+            <h2>Latest Updates</h2>
+            <div class="updates-grid">
+                <article class="update-card">
+                    <picture>
+                        <source data-srcset="images/updates/event1.webp" type="image/webp">
+                        <img data-src="images/updates/event1.jpg" 
+                             alt="Recent Event" 
+                             class="lazy" 
+                             loading="lazy" 
+                             width="400" 
+                             height="300">
+                    </picture>
+                    <h3>CIE Orientation 2025</h3>
+                    <p>Students participating in Cambridge International Education orientation...</p>
+                    <a href="#" class="read-more">Read More</a>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Ecole Globale International Girls' School</p>
+                <p>Dehradun, Uttarakhand, India</p>
+                <p>Phone: +91-9557291888</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#admission">Admission</a></li>
+                    <li><a href="#academics">Academics</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <p class="copyright">&copy; 2025 Ecole Globale. All rights reserved.</p>
+    </footer>
+
+    <!-- Load non-critical CSS -->
+    <link rel="stylesheet" href="css/non-critical.css" media="print" onload="this.media='all'">
+    
+    <!-- Defer JavaScript -->
+    <script defer src="js/lazy-load.js"></script>
+    <script defer src="js/performance.js"></script>
+    <script defer src="js/analytics.js"></script>
+</body>
+</html>

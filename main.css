@@ -1,0 +1,221 @@
+/**
+ * Main CSS - Loaded asynchronously
+ * Complete stylesheet for the entire site
+ */
+
+/* Sections */
+section {
+    margin: 4rem 0;
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: #667eea;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+p {
+    margin-bottom: 1rem;
+    line-height: 1.8;
+}
+
+/* About Section */
+.about-section {
+    text-align: center;
+}
+
+.about-section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-top: 2rem;
+}
+
+/* Team Section */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.team-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+}
+
+.team-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.team-card h3,
+.team-card p {
+    padding: 0 1rem;
+    text-align: center;
+}
+
+.team-card h3 {
+    margin-top: 1rem;
+    color: #667eea;
+}
+
+.team-card p {
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+/* Updates Section */
+.updates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.update-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.update-card:hover {
+    transform: translateY(-3px);
+}
+
+.update-card img {
+    width: 100%;
+    height: auto;
+}
+
+.update-card h3 {
+    padding: 1rem 1rem 0.5rem;
+    color: #667eea;
+    font-size: 1.3rem;
+}
+
+.update-card p {
+    padding: 0 1rem;
+    color: #666;
+}
+
+.read-more {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin: 1rem;
+    background: #667eea;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.read-more:hover {
+    background: #5568d3;
+}
+
+/* Lazy Loading Styles */
+img.lazy {
+    background: #f3f4f6;
+    min-height: 200px;
+}
+
+img.loaded {
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Footer */
+.footer {
+    background: #1f2937;
+    color: white;
+    padding: 3rem 2rem 1rem;
+    margin-top: 4rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+    color: #60a5fa;
+    margin-bottom: 1rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section a {
+    color: #d1d5db;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    color: white;
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #374151;
+    color: #9ca3af;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .hero p {
+        font-size: 1.2rem;
+    }
+    
+    .nav-menu {
+        display: none;
+    }
+    
+    .team-grid,
+    .updates-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Performance Optimizations */
+.content-visibility {
+    content-visibility: auto;
+    contain-intrinsic-size: 500px;
+}

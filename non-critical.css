@@ -1,0 +1,111 @@
+/**
+ * Non-Critical CSS - Loaded after page render
+ * Animations, hover effects, and below-fold styles
+ */
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: slideIn 0.6s ease;
+}
+
+/* Button Animations */
+.cta-button {
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.cta-button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* Card Hover Effects */
+.team-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(102,126,234,0.1) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.team-card:hover::after {
+    opacity: 1;
+}
+
+/* Scroll Animations */
+@media (prefers-reduced-motion: no-preference) {
+    .scroll-animate {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    
+    .scroll-animate.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Loading Spinner */
+.loading {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f4f6;
+    border-top-color: #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Print Styles */
+@media print {
+    .header,
+    .footer,
+    .cta-button {
+        display: none;
+    }
+    
+    body {
+        color: black;
+        background: white;
+    }
+}

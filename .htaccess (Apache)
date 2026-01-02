@@ -1,0 +1,109 @@
+# .htaccess - Apache Server Configuration
+
+# Enable Gzip Compression
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
+    AddOutputFilterByType DEFLATE text/javascript application/javascript application/x-javascript
+    AddOutputFilterByType DEFLATE application/xml application/xhtml+xml application/rss+xml
+    AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# Enable Brotli Compression (if available)
+<IfModule mod_brotli.c>
+    AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/xml text/css
+    AddOutputFilterByType BROTLI_COMPRESS text/javascript application/javascript
+    AddOutputFilterByType BROTLI_COMPRESS application/json image/svg+xml
+</IfModule>
+
+# Browser Caching
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    # Images - 1 year
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/avif "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    
+    # CSS and JavaScript - 1 year
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType text/javascript "access plus 1 year"
+    
+    # Fonts - 1 year
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/ttf "access plus 1 year"
+    ExpiresByType font/otf "access plus 1 year"
+    ExpiresByType application/font-woff2 "access plus 1 year"
+    
+    # HTML - 1 hour
+    ExpiresByType text/html "access plus 3600 seconds"
+    
+    # Default - 2 days
+    ExpiresDefault "access plus 2 days"
+</IfModule>
+
+# Cache-Control Headers
+<IfModule mod_headers.c>
+    # Cache images for 1 year
+    <FilesMatch "\.(jpg|jpeg|png|gif|webp|avif|svg|ico)$">
+        Header set Cache-Control "max-age=31536000, public, immutable"
+    </FilesMatch>
+    
+    # Cache CSS and JS for 1 year
+    <FilesMatch "\.(css|js)$">
+        Header set Cache-Control "max-age=31536000, public, immutable"
+    </FilesMatch>
+    
+    # Cache fonts for 1 year
+    <FilesMatch "\.(woff2|woff|ttf|otf|eot)$">
+        Header set Cache-Control "max-age=31536000, public, immutable"
+    </FilesMatch>
+    
+    # Don't cache HTML
+    <FilesMatch "\.(html|htm|php)$">
+        Header set Cache-Control "max-age=3600, public, must-revalidate"
+    </FilesMatch>
+</IfModule>
+
+# Security Headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+</IfModule>
+
+# Enable HTTP/2 Server Push (if supported)
+<IfModule mod_http2.c>
+    H2Push on
+    H2PushPriority * after
+    H2PushPriority text/css before
+    H2PushPriority image/jpeg after 32
+    H2PushPriority image/png after 32
+    H2PushPriority application/javascript interleaved
+</IfModule>
+
+# Prevent access to sensitive files
+<FilesMatch "(^\.htaccess|^\.git|package\.json|composer\.json|\.log)">
+    Require all denied
+</FilesMatch>
+
+# Force HTTPS (uncomment if SSL is configured)
+# <IfModule mod_rewrite.c>
+#     RewriteEngine On
+#     RewriteCond %{HTTPS} off
+#     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# </IfModule>
+
+# ETags
+<IfModule mod_headers.c>
+    Header unset ETag
+</IfModule>
+FileETag None
